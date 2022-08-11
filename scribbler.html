@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scribbler</title>
+  </head>
+  <body>
+    <!-- html meter -->
+    <div class="meter">
+      <label for="value">Meter:</label>
+      <meter
+        id="value"
+        min="0"
+        max="100"
+        low="50"
+        high="75"
+        optimum="80"
+        value="49"
+      ></meter>
+    </div>
+    <!-- html meter -->
+
+    <!-- html native search -->
+    <div class="native-search">
+      <p>Native search</p>
+      <input list="items" placeholder="Fruits" />
+      <datalist id="items">
+        <option value="apple"></option>
+        <option value="banana"></option>
+        <option value="orange"></option>
+      </datalist>
+    </div>
+    <!-- html native search -->
+
+    <!-- html accordion -->
+    <div class="accordion">
+      <p>Accordion</p>
+      <details>
+        <summary>Click to see more details</summary>
+        <p>more details</p>
+      </details>
+    </div>
+    <!-- html accordion -->
+
+    <!-- input range -->
+    <div class="search">
+      <p>Search</p>
+      <form>
+        <label for="search">Input search:</label>
+        <input type="search" id="search" name="search" />
+      </form>
+    </div>
+    <!-- input range -->
+
+    <!-- optimized images -->
+    <div class="webp">
+      <p>Picture</p>
+      <picture>
+        <source
+          srcset="./tooth.webp"
+          type="image/webp"
+          width="100"
+          loading="lazy"
+        />
+        <img src="./tooth.png" alt="" loading="lazy" />
+      </picture>
+    </div>
+    <!-- optimized images -->
+
+    <!-- optgroup  -->
+    <div class="optgroup">
+      <p>Optgroup</p>
+      <label for="framework">Choose framework</label>
+      <select name="framework" id="framework">
+        <optgroup label="frontend">
+          <option value="vue">vue</option>
+          <option value="react">react</option>
+        </optgroup>
+        <optgroup label="backend">
+          <option value="vue">node</option>
+          <option value="react">go</option>
+        </optgroup>
+      </select>
+    </div>
+    <!-- optgroup  -->
+
+    <!-- dialog -->
+    <div class="dialog">
+      <p>Dialog</p>
+      <dialog open>
+        <p>Greetings, one and all!</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+    </div>
+    <!-- dialog -->
+  </body>
+</html>
