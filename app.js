@@ -162,3 +162,25 @@ function greet(fistName = 'Bill', lastName = 'Clinton', language = 'en') {
   console.log(fistName, lastName, language);
 }
 greet('John', 'Cena', 'es');
+
+//Function Overloading
+function greeting(firstName, lastName, language) {
+  language = language || 'en';
+
+  if (language === 'en') {
+    console.log('Hello ' + firstName + ' ' + lastName);
+  }
+  if (language === 'es') {
+    console.log('Hola ' + firstName + ' ' + lastName);
+  }
+}
+
+function greetEng(firstName, lastName) {
+  greeting(firstName, lastName, 'en');
+}
+function greetEsp(firstName, lastName) {
+  greeting(firstName, lastName, 'es');
+}
+
+greetEng('John', 'Doe');
+greetEsp('John', 'Doe');
