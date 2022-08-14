@@ -54,13 +54,13 @@
 // greet.language = 'english';
 // console.log(greet.language);
 
-// function statement
+//* function statement
 greet();
 function greet() {
   console.log('hi');
 }
 
-// anonymous function, function expression
+//* anonymous function, function expression
 var anonymousGreet = function () {
   console.log('hi');
 };
@@ -72,7 +72,7 @@ anonymousGreet();
 
 // anonymousGreet();
 
-// first class function
+//* first class function
 function log(a) {
   a();
 }
@@ -80,7 +80,7 @@ log(function () {
   console.log('me');
 });
 
-// by value (primitives)
+//* by value (primitives)
 // var a = 2;
 // var b;
 
@@ -88,14 +88,14 @@ log(function () {
 // a = 8;
 // console.log(a, b);
 
-// by reference (all objects including functions)
+//* by reference (all objects including functions)
 // var c = { name: 'foo' };
 // var d;
 // d = c;
-// c.name = 'fighters'; //mutated
-// console.log(c, d); //pointing to the same location in memory
+// c.name = 'fighters'; //*mutated
+// console.log(c, d); //*pointing to the same location in memory
 
-//br reference (even as parameters)
+//* by reference (even as parameters)
 // function changeGreeting(obj) {
 //   obj.name = 'james'; //mutated
 // }
@@ -103,11 +103,11 @@ log(function () {
 // changeGreeting(d);
 // console.log(c, d);
 
-//equals operators sets up new memory space(new address)
+//? equals operators sets up new memory space(new address)
 // c = { name: 'Pit' };
 // console.log(c, d);
 
-//objects, functions and this keyword
+//*objects, functions and 'this' keyword
 var a = () => {
   console.log(this);
   this.newVariable = 'hello';
@@ -138,7 +138,7 @@ var c = {
 
 c.log();
 
-//Arrays
+//*Arrays
 var arr = [
   1,
   { name: 'john', title: 'Mr' },
@@ -150,9 +150,9 @@ var arr = [
   },
 ];
 arr[4](arr[1].name);
-console.log(arr);
+console.table(arr);
 
-// arguments and spreads
+// *arguments and spreads
 function greet(fistName = 'Bill', lastName = 'Clinton', language = 'en') {
   if (arguments.length === 0) {
     console.log('missing params');
@@ -163,7 +163,7 @@ function greet(fistName = 'Bill', lastName = 'Clinton', language = 'en') {
 }
 greet('John', 'Cena', 'es');
 
-//Function Overloading
+//*Function Overloading
 function greeting(firstName, lastName, language) {
   language = language || 'en';
 
@@ -184,3 +184,213 @@ function greetEsp(firstName, lastName) {
 
 greetEng('John', 'Doe');
 greetEsp('John', 'Doe');
+
+//* Automatic semicolon insertion
+function getPerson() {
+  return;
+  {
+    firstName: 'Joe';
+  }
+}
+
+console.log(getPerson());
+
+//* Immediately invoked functions expressions (IIFEs)
+//? function statement
+function f1(name) {
+  console.log('Hello ' + name);
+}
+f1('John');
+
+//? function expression
+var f2 = function (name) {
+  console.log('Hello ' + name);
+};
+f2('Ced');
+
+//? Immediately invoked function
+var f3 = (function (name) {
+  greet = 'hello ' + name;
+  return greet;
+})('Ben');
+
+console.log(f3);
+
+var firstName = 'Cindy';
+(function (name) {
+  var greeting = 'Inside IIFE: Hello ';
+  console.log(greeting + ' ' + name);
+})(firstName); //? IIFE
+
+//* Understanding Closures
+function f4(whatToSay) {
+  return function (name) {
+    console.log(whatToSay + ' ' + name);
+  };
+}
+
+f4('Hello')('Tony');
+
+function f5(whatToSay) {
+  return function (name) {
+    console.log(whatToSay + ' ' + name);
+  };
+}
+var sayHi = f5('Hi');
+sayHi('Grant');
+
+function buildFunctions() {
+  var arr = [];
+  for (var i = 0; i < 3; i++) {
+    arr.push(function () {
+      console.log(i);
+    });
+  }
+  console.log('i', i);
+  return arr;
+}
+
+var fs = buildFunctions();
+console.log(fs);
+fs[0]();
+fs[1]();
+fs[2]();
+
+function buildFunctions1() {
+  var arr = [];
+  for (var i = 0; i < 3; i++) {
+    arr.push(
+      (function (j) {
+        return function () {
+          console.log(j);
+        };
+      })(i)
+    );
+  }
+  return arr;
+}
+
+var fs1 = buildFunctions1();
+console.log(fs1);
+fs1[0]();
+fs1[1]();
+fs1[2]();
+
+//* function factory
+//? language will be trapped or collected in the Closure/Scope Chain
+function makeGreeting(language) {
+  return function (firstName, lastName) {
+    if (language === 'en') {
+      console.log('Hello ' + firstName + ' ' + lastName);
+    }
+    if (language === 'es') {
+      console.log('Hola ' + firstName + ' ' + lastName);
+    }
+  };
+}
+
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('es');
+
+greetEnglish('Jake', 'Paul');
+greetSpanish('Jake', 'Paul');
+
+//* Closures and Callbacks
+
+function sayHiLater() {
+  var greeting = 'hi';
+  setTimeout(() => {
+    console.log(greeting);
+  }, 3000);
+}
+sayHiLater();
+
+//* Call(), Apply() and Bind()
+var person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  getFullName: function () {
+    var fullName = this.firstName + ' ' + this.lastName;
+    return fullName;
+  },
+};
+
+var logName = function (lang1, lang2) {
+  console.log('Logged: ' + this.getFullName());
+  console.log('Arguments ' + lang1 + ' ' + lang2);
+};
+
+var logPersonName = logName.bind(person);
+
+logPersonName();
+
+logName.call(person, 'en', 'es');
+logName.apply(person, ['zulu', 'pedi']);
+
+//*Function borrowing
+var person2 = {
+  firstName: 'Peter',
+  lastName: 'Piper',
+};
+var data = person.getFullName.apply(person2);
+console.log(data);
+
+//* function currying
+function multiply(a, b) {
+  return a * b;
+}
+var multiplyByTwo = multiply.bind(this, 2);
+console.log(multiplyByTwo(2));
+
+//* functional programming
+var arr1 = [1, 2, 3];
+console.log(arr1);
+
+var arr2 = [];
+for (let i = 0; i < arr1.length; i++) {
+  const element = arr1[i] * 2;
+  arr2.push(element);
+}
+console.log(arr2);
+
+function mapForEach(arr, fn) {
+  var newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(fn(arr[i]));
+  }
+  return newArr;
+}
+
+var arr3 = mapForEach(arr1, function (item) {
+  return item * 2;
+});
+
+console.log(arr3);
+
+var checkPastLimit = function (limiter, item) {
+  return item > limiter;
+};
+
+var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
+console.log(arr4);
+
+var checkPastLimitSimplified = function (limiter) {
+  return function (limiter, item) {
+    return item > limiter;
+  }.bind(this, limiter);
+};
+
+var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
+console.log(arr5);
+
+//* Underscore.js
+
+var arr6 = _.map(arr1, function (item) {
+  return item * 3;
+});
+console.log(arr6);
+
+var arr7 = _.filter([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], function (item) {
+  return item % 2 === 0;
+});
+console.log(arr7);
