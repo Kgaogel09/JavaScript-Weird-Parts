@@ -1,9 +1,9 @@
 // Name/Value Pair
-const address = "100 Main Street";
+const address = '100 Main Street';
 
 // Object
 const addressOne = {
-  street: "Main",
+  street: 'Main',
   number: 122,
   apartment: {
     floor: 1,
@@ -140,3 +140,12 @@ const addressOne = {
 // greet();
 
 // console.log(libraryName);
+
+//* Scoping
+// const a = 1;
+// function test() {
+//   const b = 2;
+//   console.log('here', a, b);
+// }
+// test();
+// console.log(a, b);
