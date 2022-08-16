@@ -384,7 +384,6 @@ var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
 console.log(arr5);
 
 //* Underscore.js
-
 var arr6 = _.map(arr1, function (item) {
   return item * 3;
 });
