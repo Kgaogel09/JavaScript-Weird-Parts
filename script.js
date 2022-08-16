@@ -150,5 +150,5 @@ console.log(Object.prototype.toString.call(people));
 //* strict mode
 
 var person;
-person = {};
+persom = {};
 console.log('person', person);

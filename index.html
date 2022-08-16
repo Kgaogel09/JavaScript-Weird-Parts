@@ -11,8 +11,10 @@
       src="https://cdn.jsdelivr.net/npm/underscore@latest/underscore-umd-min.js"
       defer
     ></script>
-    <!-- <script src="app.js" defer></script> -->
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
+    <!-- <script src="app2.js" defer></script> -->
+    <script src="jquery.js" defer></script>
+    <script src="app.js" defer></script>
     <style>
       body {
         font-family: 'Courier New', Courier, monospace;
@@ -23,9 +25,20 @@
         align-items: center;
         height: 100vh;
       }
+      ul.content {
+        padding: 0;
+        list-style: none;
+      }
     </style>
   </head>
   <body>
-    <h2>JavaScript: Understanding the Weird Parts</h2>
+    <div id="main" class="container">
+      <h2>JavaScript: Understanding the Weird Parts</h2>
+      <ul class="content">
+        <li>Types and Operators</li>
+        <li>Objects and functions</li>
+        <li>Odds and Ends</li>
+      </ul>
+    </div>
   </body>
 </html>
