@@ -55,5 +55,31 @@ function butter(...b) {
   let a = [1, 2, 3, ...b];
   return a;
 }
-
 butter(4, 5, 6);
+
+//? destructuring
+let c = [100, 200];
+let [m, n] = c;
+console.log(c);
+
+let fellowship = ['Frodo', 'Gandalf', 'Aragorn'];
+let [hobbit, wizards, ranger] = fellowship;
+console.log(hobbit, wizard, ranger);
+
+let x = [100, 200, 300, 400, 500];
+let [y, ...w] = x;
+console.log('y', y, 'w', w);
+
+let wizard = { isMagical: true, power: 10 };
+// let magical = wizard.isMagical;
+// let power = wizard.power;
+let { isMagical, power } = wizard;
+console.log(wizard);
+
+let magical = true;
+let powers = 10;
+
+let ninja = { magical: false, powers: 5 };
+({ magical, powers } = ninja);
+
+console.log(ninja);
