@@ -7,6 +7,9 @@
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
     <title>Scribbler</title>
     <style>
+      input[type='number']:out-of-range {
+        border-color: red !important;
+      }
       .layout {
         display: flex;
         gap: 16px;
@@ -135,5 +138,11 @@
       <h2>Background overlay</h2>
     </div>
     <!-- background overlay -->
+
+    <!-- simple form -->
+    <div class="simple-form">
+      <input type="number" min="0" max="10" name="number" id="number" />
+    </div>
+    <!-- simple form  -->
   </body>
 </html>

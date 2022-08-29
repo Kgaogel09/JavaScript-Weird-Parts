@@ -83,3 +83,47 @@ let ninja = { magical: false, powers: 5 };
 ({ magical, powers } = ninja);
 
 console.log(ninja);
+
+//* Arrow Functions
+// function blastOff() {
+//   console.log(`3.....2.....1.....BOOM!!`);
+// }
+
+// setTimeout(() => {
+//   console.log(`3.....2.....1.....BOOM!!`);
+// }, 3000);
+
+const blastOff = () => {
+  console.log(`3.....2.....1.....BOOM!!`);
+};
+
+blastOff();
+
+let eye = 'eye';
+const fire = () => {
+  return `bulls-${eye}`;
+};
+console.log(fire());
+
+//* Map Methods
+let points = [10, 20, 30, 40, 50];
+points = points.map((ele) => ele + 10);
+console.log(points);
+
+let lengths = [3, 7, 5];
+let multiple = 8;
+
+const scale = (multiple) => {
+  return lengths.map((ele) => ele * multiple); // TODO fill out the rest;
+};
+
+console.log(scale(multiple));
+
+//* Filter Method
+// let isPassing = (grade) => {
+//   return grade >= 70;
+// };
+
+let marks = [40, 78, 89, 100, 20];
+marks = marks.filter((ele) => ele >= 70);
+console.log(marks);
