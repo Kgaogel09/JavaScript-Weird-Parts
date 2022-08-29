@@ -1,3 +1,6 @@
+import { students, add, multiply } from './students';
+import total from './students';
+
 //*es6 new syntax
 //? variable scoping with let
 let a = 'hello';
@@ -127,3 +130,6 @@ console.log(scale(multiple));
 let marks = [40, 78, 89, 100, 20];
 marks = marks.filter((ele) => ele >= 70);
 console.log(marks);
+
+//* Modules
+console.log('students', students, 'total', total, 'add', add(total, 4));
